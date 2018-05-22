@@ -70,4 +70,3 @@ if($login=="1")
 		echo "<script language='javascript'>alert('ÇëÊäÈëÍêÕû£¡');history.back();</script>";
 	}
 }
-?>
