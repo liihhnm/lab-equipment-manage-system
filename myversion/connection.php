@@ -93,4 +93,17 @@ function operate_trans($arr) {
     return $trans_res;
 }
 
+function getMyOption($table, $value, $option) {
+    $sql = "select * from $table";
+    $query_res = mysql_query($sql);
+    if (!$query_res)
+        return;
+    $row_count = mysql_num_rows($query_res);
+    for ($i = 0; $i < $row_count; $i++) {
+        ?>
+        <option value="<?php echo mysql_result($query_res, $i, $value);?>"><?php echo mysql_result($query_res, $i,$option);?></option>
+        <?php
+    }
+}
+
 ?>

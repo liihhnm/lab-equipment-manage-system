@@ -146,28 +146,3 @@ $ndate =date("Y-m-d");
     <p>&nbsp;</p>
     </body>
     </html>
-<?php
-function ischongfu($sql)
-{
-    $query=mysql_query($sql);
-    $rowscount=mysql_num_rows($query);
-    if($rowscount>0)
-    {
-
-        if($_POST['device']=='ios')
-        {
-            header("content-type:application/json");
-            $answer['flag']=2;
-            $answer=json_encode($answer);
-            echo $answer;
-            return false;
-        }
-        else
-        {
-            echo "<script>javascript:alert('该用户名已经存在！');history.back();</script>";
-            return false;
-        }
-    }
-    return true;
-}
-?>

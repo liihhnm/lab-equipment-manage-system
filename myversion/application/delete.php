@@ -17,7 +17,7 @@ $comeFrom = $_SERVER['HTTP_REFERER'];
 if ($type == constant('USER_TYPE')) {
     deleteUser($id);
 } else if ($type == constant('ITEM_TYPE')) {
-    delete_item($id);
+    deleteItem($id);
 } else {
 }
 
@@ -35,4 +35,42 @@ function deleteUser($id) {
     }
 }
 
+function deleteItem($id) {
+    $subtype = $_REQUEST['subtype'];
+    if (!empty($subtype)) {
+        if ($subtype == 'attr') {
+            deleteItemAttr($id);
+        } elseif ($subtype == 'type') {
+            deleteItemType($id);
+        }
+    }
+}
+
+function deleteItemAttr($id) {
+    global $comeFrom;
+    $attribute_key = $_REQUEST['key'];
+    if (empty($attribute_key)) {
+        showErrorAndBack("删除属性失败");
+        exit;
+    }
+    $sql1 = "alter table item_info drop column $attribute_key";
+    $sql2 = "delete from item_attribute where id = $id";
+    $sql_arr = array($sql1, $sql2);
+
+    if (operate_trans($sql_arr)) {
+        echo "<script language='javascript'>alert('删除成功！');location.href='$comeFrom';</script>";
+    } else {
+        echo "<script language='javascript'>alert('删除失败！');location.href='$comeFrom';</script>";
+    }
+}
+
+function deleteItemType($id) {
+    global $comeFrom;
+    $sql = "delete from type_info where id = $id";
+    if (mysql_query($sql)) {
+        echo "<script language='javascript'>alert('删除成功！');location.href='$comeFrom';</script>";
+    } else {
+        echo "<script language='javascript'>alert('删除失败！');location.href='$comeFrom';</script>";
+    }
+}
 ?>

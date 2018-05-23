@@ -61,25 +61,25 @@ include_once '../constant.inc';
             <tr>
                 <td width="25"><?php echo $i+1; ?></td>
                 <td>
-                    <?php echo mysql_result($query,$i, user_name);?>
+                    <?php echo mysql_result($query,$i, 'user_name');?>
                 </td>
                 <td>
-                    <?php echo mysql_result($query,$i,name);?>
+                    <?php echo mysql_result($query,$i,'name');?>
                 </td>
                 <td>
-                    <?php echo mysql_result($query,$i,student_id);?>
+                    <?php echo mysql_result($query,$i,'student_id');?>
                 </td>
                 <td>
-                    <?php echo mysql_result($query,$i,sex);?>
+                    <?php echo mysql_result($query,$i,'sex');?>
                 </td>
                 <td>
-                    <?php echo mysql_result($query,$i,email);?>
+                    <?php echo mysql_result($query,$i,'email');?>
                 </td>
                 <td>
-                    <?php echo mysql_result($query,$i,phone);?>
+                    <?php echo mysql_result($query,$i,'phone');?>
                 </td>
                 <td width="120">
-                    <?php echo mysql_result($query,$i,add_time);?>
+                    <?php echo mysql_result($query,$i,'add_time');?>
                 </td>
                 <td width="70">
                     <a href="delete.php?id=<?php echo mysql_result($query,$i,id);?>&type=user" onclick="return confirm('确认删除')">删除</a>

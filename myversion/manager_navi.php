@@ -38,23 +38,25 @@ session_start();
                     </ul>
                 </dd>
             </dl>
-            <!-- Item 1 End -->
             <dl class='bitem'>
-                <dt onClick='showHide("items2_1")'><b>器材属性管理</b></dt>
-                <dd style='display:block' class='sitem' id='items2_1'>
+                <dt onClick='showHide("items5_1")'><b>借阅信息</b></dt>
+                <dd style='display:block' class='sitem' id='items5_1'>
                     <ul class='sitemu'>
-                        <li><a href='qicaiziduan_add.php' target='main'>器材属性查询</a></li>
-                        <li><a href='qicaiziduan_detail.php' target='main'>器材属性添加</a></li>
+                        <li><a href='application/borrow_record.php' target='main'>借阅记录</a></li>
+                        <!--
+                        <li><a href='tushuxinxi_list2.php' target='main'>借阅统计</a></li>
+                        -->
                     </ul>
                 </dd>
             </dl>
+            <!-- Item 1 End -->
             <!-- Item 2 Strat -->
             <dl class='bitem'>
-                <dt onClick='showHide("items3_1")'><b>器材类别管理</b></dt>
+                <dt onClick='showHide("items3_1")'><b>器材属性类别管理</b></dt>
                 <dd style='display:block' class='sitem' id='items3_1'>
                     <ul class='sitemu'>
-                        <li><a href='shangpinleibie_add.php' target='main'>器材类别查询</a></li>
-                        <li><a href='shangpinleibie_list.php' target='main'>器材类别添加</a></li>
+                        <li><a href = 'application/manage_item_attr.php' target = "main">器材属性管理</a></li>
+                        <li><a href='application/manage_item_type.php' target='main'>器材类别管理</a></li>
                     </ul>
                 </dd>
             </dl>
@@ -63,18 +65,8 @@ session_start();
                 <dt onClick='showHide("items4_1")'><b>器材信息管理</b></dt>
                 <dd style='display:block' class='sitem' id='items4_1'>
                     <ul class='sitemu'>
-                        <li><a href='tushuxinxi_add.php' target='main'>器材信息查询</a></li>
-                        <li><a href='tushuxinxi_list.php' target='main'>器材信息添加</a></li>
-                    </ul>
-                </dd>
-            </dl>
-
-            <dl class='bitem'>
-                <dt onClick='showHide("items5_1")'><b>借阅信息</b></dt>
-                <dd style='display:block' class='sitem' id='items5_1'>
-                    <ul class='sitemu'>
-                        <li><a href='jieyuejilu_list.php' target='main'>借阅记录</a></li>
-                        <li><a href='tushuxinxi_list2.php' target='main'>借阅统计</a></li>
+                        <li><a href='application/list_item.php' target='main'>器材信息查询</a></li>
+                        <li><a href='application/add_item.php' target='main'>器材信息添加</a></li>
                     </ul>
                 </dd>
             </dl>
