@@ -18,7 +18,8 @@ function changePassword() {
 
     $query_res = mysql_query("select password from users where user_name = '$user_name'");
     if ($query_res && mysql_num_rows($query_res) != 0) {
-        if ($old_password == mysql_result($query_res, 0, password)) {
+        if (getCryptPassword($old_password) == mysql_result($query_res, 0, 'password')) {
+            $new_password = getCryptPassword($new_password);
             $change_res = mysql_query("update users set password = '$new_password' where user_name = '$user_name'");
             if (!$change_res) {
                 showErrorAndBack('更改密码失败！');

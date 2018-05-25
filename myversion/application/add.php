@@ -17,6 +17,9 @@ if ($type == constant('USER_TYPE')) {
     exit;
 }
 
+//管理员不会添加user_info
+//删除管理员时，只删除了users里的管理员，没写user_info的sql
+//所以如果user_info里有关联了管理员的行，会有外键约束引起的删除失败
 function addUser() {
     global $comeFrom;
 
@@ -29,17 +32,19 @@ function addUser() {
     $auth = $_REQUEST['auth'];
     $user_name = $_REQUEST['username'];
     $password = $_REQUEST['pwd1'];
+    $password = getCryptPassword($password);
     //get last id
     $sql = "select id from users order by id desc limit 1";
     $res = mysql_query($sql);
     $next_id = mysql_fetch_row($res)[0] + 1;
     //start insert transaction
     $sql1 = "insert into users(id, user_name, password, role) values($next_id, '$user_name', '$password', '$auth')";
-    if ($auth == 'normaluser')
+    if ($auth == 'normaluser') {
         $sql2 = getUserInfoSql($next_id);
+        $sql_arr = array($sql1, $sql2);
+    }
     else
-        $sql2 = "insert into user_info(user_id) values($next_id)";
-    $sql_arr = array($sql1, $sql2);
+        $sql_arr = array($sql1);
 
     if (operate_trans($sql_arr)) {
         echo "<script language='javascript'>alert('添加成功！');location.href='$comeFrom';</script>";
@@ -70,8 +75,8 @@ function getUserInfoSql($user_id) {
     $name = $_REQUEST['name'];
     $student_id = $_REQUEST['student_id'];
     $sex = $_REQUEST['sex'];
-    $email = !$_REQUEST['email'] ? $_REQUEST['email'] : '';
-    $phone = !$_REQUEST['phone'] ? $_REQUEST['phone'] : '';
+    $email = !empty($_REQUEST['email']) ? $_REQUEST['email'] : '';
+    $phone = !empty($_REQUEST['phone']) ? $_REQUEST['phone'] : '';
 
     return "insert into user_info(user_id, name, student_id, sex, email, phone) 
              values($user_id, '$name', '$student_id', '$sex', '$email', '$phone')";
@@ -89,7 +94,7 @@ function checkUserParamAndRepeat() {
     $sql = "select * from users where binary user_name = '$user_name' and role = '$auth'";
     $res = mysql_query($sql);
     if ($res && mysql_num_rows($res) != 0) {
-        showErrorAndBack('已经存在的用户名');
+        showErrorAndBack('已经存在的用户名和角色');
         exit;
     }
 }

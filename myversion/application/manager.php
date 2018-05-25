@@ -16,7 +16,7 @@ include_once '../connection.php';
     <!--
     <link rel="stylesheet" href="../css.css" type="text/css">
     -->
-    <link rel = "stylesheet" href = "../css/background.css" type = "text/css">
+    <link rel = "stylesheet" href = "css.css" type = "text/css">
 
     <script language="javascript">
         function check()
@@ -73,8 +73,8 @@ include_once '../connection.php';
         </tr>
         <tr>
             <td>&nbsp;</td>
-            <td><input type="submit" name="Submit" value="提交" onClick="return check();" />
-                <input type="reset" name="Submit2" value="重置" /></td>
+            <td><input type="submit" name="Submit" value="提交" onClick="return check();" class="btn btn-primary"/>
+                <input type="reset" name="Submit2" value="重置" class="btn btn-primary"/></td>
         </tr>
     </table>
 </form>
@@ -113,7 +113,7 @@ include_once '../connection.php';
                 ?></td>
             <td><a href="delete.php?id=<?php
                 echo mysql_result($query,$i,"id");
-                ?>&type=user" onClick="return confirm('确认删除')">删除</a> </td>
+                ?>&type=user" onClick="return confirm('确认删除')" class="btn">删除</a> </td>
         </tr>
         <?php
     }

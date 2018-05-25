@@ -36,8 +36,8 @@ session_start();
                 <dt onClick='showHide("items2_1")'><b>器材借取管理</b></dt>
                 <dd style='display:block' class='sitem' id='items2_1'>
                     <ul class='sitemu'>
-                        <li><a href='tushuxinxi_list3.php' target='main'>器材查询借阅</a></li>
-                        <li><a href='jieyuejilu_list2.php' target='main'>借取记录管理</a></li>
+                        <li><a href='list_item.php' target='main'>器材查询借阅</a></li>
+                        <li><a href='borrow_record.php&username=' target='main'>借取记录管理</a></li>
                     </ul>
                 </dd>
             </dl>

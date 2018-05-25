@@ -25,7 +25,6 @@ include_once '../connection.php';
             var info="请输入"+<?php echo "\"".mysql_result($query,$i,'attribute_describe')."\""?>+"!";
             alert(info);
             document.form1.<?php echo mysql_result($query,$i,'attribute_key') ?>.focus();
-            console.log("fuck\n");
             return false;
         }
         <?php
@@ -34,7 +33,7 @@ include_once '../connection.php';
     }
 </script>
 <form id="form1" name="form1" method="post" action="add.php">
-    <table width="100%" border="1" align="center" cellpadding="3" cellspacing="1" bordercolor="#00FFFF" style="border-collapse:collapse">
+    <table width="100%" border="1" align="center" cellpadding="3" cellspacing="1" bordercolor="#708090" style="border-collapse:collapse">
         <tr>
             <td>器材名称：</td>
             <td>
@@ -84,8 +83,8 @@ include_once '../connection.php';
         <tr>
             <td>&nbsp;</td>
             <td>
-                <input type="submit" name="Submit" value="添加" onclick="return check();" />
-                <input type="reset" name="Submit2" value="重置"  />
+                <input type="submit" name="Submit" value="添加" onclick="return check();"  class="btn btn-primary"/>
+                <input type="reset" name="Submit2" value="重置"  class="btn btn-primary"/>
                 <input type = "hidden" name = "type" value = "item"/>
                 <input type = "hidden" name = "subtype" value = "item_info"/>
             </td>

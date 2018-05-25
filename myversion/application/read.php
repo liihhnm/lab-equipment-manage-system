@@ -28,7 +28,9 @@ function findItemAttr($key, $describe) {
     if (!empty($key))
         $sql = $sql . "and attribute_key like '%$key%' ";
     if (!empty($describe))
-        $sql = $sql . "and attribute_describe like '%$describe%'";
+        $sql = $sql . "and attribute_describe like '%$describe%' ";
+
+    $sql = $sql . "order by is_default desc";
 
     return mysql_query($sql);
 }

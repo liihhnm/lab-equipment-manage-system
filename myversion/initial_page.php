@@ -11,12 +11,10 @@ require_once 'utility.php';
     <link rel="stylesheet" type="text/css" href="skin/css/base.css" />
     <link rel="stylesheet" type="text/css" href="skin/css/main.css" />
 </head>
+<!--
 <body leftmargin="8" topmargin='8'>
-<table width="98%" border="0" align="center" cellpadding="0" cellspacing="0">
-    <tr>
-        <td><div style='float:left'> <img height="14" src="skin/images/frame/book1.gif" width="20" />&nbsp;欢迎使用本器材管理系统 </div>
-            <div style='float:right;padding-right:8px;'>
-                <!--  //保留接口  -->
+
+
             </div></td>
     </tr>
     <tr>
@@ -55,12 +53,18 @@ require_once 'utility.php';
     </tr>
     <tr bgcolor="#FFFFFF">
         <td width="25%" bgcolor="#FFFFFF">您的级别：</td>
-        <td width="75%" bgcolor="#FFFFFF"><?php echo getRoleCNName($_SESSION['role'])?></td>
+        <td width="75%" bgcolor="#FFFFFF"><?php //echo getRoleCNName($_SESSION['role'])?></td>
     </tr>
     <tr bgcolor="#FFFFFF">
         <td>今日时间：</td>
-        <td><?php echo date("Y-m-d");?></td>
+        <td><?php //echo date("Y-m-d");?></td>
     </tr>
 </table>
 </body>
+-->
+<body background="skin/images/frame/neuq.jpg"
+      style=" background-repeat:no-repeat ;
+background-size:100% 100%;
+background-attachment: fixed;"
+>
 </html>

@@ -11,4 +11,6 @@ define('NORMALUSER_NAME', '普通用户');
 
 define('ITEM_PER_PAGE', 10);
 
+define('CRYPT_STR', 'abc123');
+
 ?>

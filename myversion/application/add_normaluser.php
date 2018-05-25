@@ -1,7 +1,4 @@
-<?php
-$ndate =date("Y-m-d");
-?>
-    <html>
+ <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <title>普通用户信息添加</title><script language="javascript" src="../js/Calendar.js"></script>
@@ -79,10 +76,10 @@ $ndate =date("Y-m-d");
         </script>
     </head>
     <body>
-    <p>添加用户信息 <?php echo $ndate; ?></p>
+    <p>添加用户信息</p>
 
     <form id="form1" name="form1" method="post" action="add.php">
-        <table width="100%" border="1" align="center" cellpadding="3" cellspacing="1" bordercolor="#00FFFF" style="border-collapse:collapse">
+        <table width="100%" border="1" align="center" cellpadding="3" cellspacing="1" bordercolor="#708090" style="border-collapse:collapse">
             <tr>
                 <td>用户名</td>
                 <td>
@@ -98,7 +95,7 @@ $ndate =date("Y-m-d");
                 </td>
             </tr>
             <tr>
-                <td>确认秘密</td>
+                <td>确认密码</td>
                 <td>
                     <input name='repassword' type='password' id='repassword' value='' />&nbsp;*
                 </td>
@@ -138,8 +135,8 @@ $ndate =date("Y-m-d");
             <tr>
                 <td>&nbsp;</td>
                 <td>
-                    <input type="submit" name="Submit" value="提交" onclick="return check();" />
-                    <input type="reset" name="Submit2" value="重置" /></td>
+                    <input type="submit" name="Submit" value="提交" onclick="return check();" class="btn btn-primary"/>
+                    <input type="reset" name="Submit2" value="重置" class="btn btn-primary"/></td>
             </tr>
         </table>
     </form>

@@ -14,6 +14,13 @@ function getRoleCNName($englishName) {
         return "";
 }
 
+function hasReturnToCN($tinyint) {
+    if ($tinyint == 1)
+        return '是';
+    else
+        return '否';
+}
+
 function isManager($roleName) {
     if ($roleName == "manager")
         return true;
@@ -35,5 +42,9 @@ function noRightError() {
 
 function showErrorAndBack($error_msg) {
     echo "<script language = 'javascript'>alert('$error_msg');history.back();</script>";
+}
+
+function getCryptPassword($password) {
+    return hash("sha256", $password);
 }
 ?>

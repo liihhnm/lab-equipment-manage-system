@@ -39,7 +39,7 @@ require_once 'utility.php';
         {
             if(itemnum==curStyle) return false;
             if(moveout=='m') selobj.className = 'itemsel';
-            if(moveout=='o') selobj.className = 'item';
+            if(moveout=='o') selobj.className = 'itemsel';
             return true;
         }
 
@@ -91,10 +91,10 @@ require_once 'utility.php';
         .itemsel {
             width:80px;
             text-align:center;
-            background:#226411;
-            border-left:1px solid #c5f097;
-            border-right:1px solid #c5f097;
-            border-top:1px solid #c5f097;
+            background:#7E9DB9;
+            border-left:1px solid #0000cc;
+            border-right:1px solid #0000cc;
+            border-top:1px solid #0000cc;
             height:26px;
             line-height:28px;
         }
@@ -142,7 +142,7 @@ require_once 'utility.php';
 </head>
 
 <body bgColor='#ffffff'>
-<table width="100%" border="0" cellpadding="0" cellspacing="0" background="skin/images/frame/topbg.gif">
+<table width="100%" border="0" cellpadding="0" cellspacing="0" background="skin/images/frame/newTopBg.png">
     <tr>
         <td width='20%' height="60"><div style="font-family:宋体; color:#FFFFFF; filter:Glow(Color=#000000,Strength=2); WIDTH: 100%; FONT-WEIGHT: bold; FONT-SIZE: 19pt; margin-top:5pt">
                 <div align="center" class="STYLE5 STYLE1">实验室器材管理系统</div>
@@ -159,14 +159,14 @@ require_once 'utility.php';
                 <tr>
                     <td align="right" height="34" class="rmain">
                         <dl id="tpa">
-                            <dd class='img'><a href="javascript:ChangeMenu(-1);"><img vspace="5" src="skin/images/frame/arrl.gif" border="0" width="5" height="8" alt="缩小左框架"  title="缩小左框架" /></a></dd>
+<!--                            <dd class='img'><a href="javascript:ChangeMenu(-1);"><img vspace="5" src="skin/images/frame/arrl.gif" border="0" width="5" height="8" alt="缩小左框架"  title="缩小左框架" /></a></dd>-->
                             <dd class='img'><a href="javascript:ChangeMenu(0);"><img vspace="3" src="skin/images/frame/arrfc.gif" border="0" width="12" height="12" alt="显示/隐藏左框架" title="显示/隐藏左框架" /></a></dd>
                             <dd class='img' style="margin-right:10px;"><a href="javascript:ChangeMenu(1);"><img vspace="5" src="skin/images/frame/arrr.gif" border="0" width="5" height="8" alt="增大左框架" title="增大左框架" /></a></dd>
                             <?php
                                 if (isManager($_SESSION['role']))
-                                    echo "<dd><div class='itemsel' id='item1' onMouseMove=\"mv(this,'move',1);\" onMouseOut=\"mv(this,'o',1);\"><a href='application/manager.php' onclick='changeSel(1)' target='main'>系统用户管理</a></div></dd>";
+                                    echo "<dd><div class='itemsel' id='item1'><a href='application/manager.php'  target='main'>系统用户管理</a></div></dd>";
                             ?>
-                            <dd><div class='item' id='item9' onMouseMove="mv(this,'m',9);" onMouseOut="mv(this,'o',9);"><a href="initial_page.php" onclick="changeSel(9)" target="main">后台主页</a></div></dd>
+                            <dd><div class='itemsel' id='item9' "><a href="initial_page.php" target="main">后台主页</a></div></dd>
                         </dl>
                     </td>
                 </tr>

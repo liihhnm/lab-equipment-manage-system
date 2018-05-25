@@ -1,5 +1,6 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel = "stylesheet" type = "text/css" href="css.css"/>
     <title>修改密码</title>
 </head>
 <script>
@@ -45,7 +46,7 @@
 <body>
 
 <form id="form1" name="form1" method="post" action="update.php">
-    <table width="41%" height="126" border="1" align="center" cellpadding="0" cellspacing="0" bordercolor="9DC9FF" style="border-collapse:collapse">
+    <table width="41%" height="126" border="1" align="center" cellpadding="0" cellspacing="0" bordercolor="#708090" style="border-collapse:collapse">
         <tr>
             <td colspan="2"><div align="center">修改密码</div></td>
         </tr>
@@ -69,8 +70,11 @@
             </td>
         </tr>
         <tr>
-            <td align="right"><input type="submit" name="Submit" value="确定" onClick="return check()" /></td>
-            <td align="left"><input type="reset" name="Submit2" value="重置" /></td>
+            <td></td>
+            <td align="left">
+                <input type="submit" name="Submit" value="确定" onClick="return check()"   class="btn btn-primary"/>
+                <input type="reset" name="Submit2" value="重置"  class="btn btn-primary"/>
+            </td>
         </tr>
     </table>
 </form>

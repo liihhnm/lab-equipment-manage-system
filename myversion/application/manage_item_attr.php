@@ -27,7 +27,7 @@ include_once '../constant.inc';
     }
 </script>
 <form id="form1" name="form1" method="post" action="add.php">
-    <table width="100%" border="1" align="center" cellpadding="3" cellspacing="1" bordercolor="#00FFFF" style="border-collapse:collapse">
+    <table width="100%" border="1" align="center" cellpadding="3" cellspacing="1" bordercolor="#708090" style="border-collapse:collapse">
         <tr>
             <td>属性键名：</td>
             <td>
@@ -45,8 +45,8 @@ include_once '../constant.inc';
         <tr>
             <td>&nbsp;</td>
             <td>
-                <input type="submit" name="Submit" value="添加" onclick="return check();"  style='border:solid 1px #000000; color:#666666' />
-                <input type="reset" name="Submit2" value="重置" style='border:solid 1px #000000; color:#666666' />
+                <input type="submit" name="Submit" value="添加" onclick="return check();"  class="btn btn-primary"/>
+                <input type="reset" name="Submit2" value="重置" class="btn btn-primary"/>
             </td>
         </tr>
     </table>
@@ -60,9 +60,9 @@ include_once '../constant.inc';
     <input name="key" type="text" id="bh" />
     属性描述：
     <input name = "describe" id = "describe"/>
-    <input type="submit" name="Submit" value="查找" />
+    <input type="submit" name="Submit" value="查找"  class="btn btn-primary"/>
 </form>
-<table width="100%" border="1" align="center" cellpadding="3" cellspacing="1" bordercolor="#00FFFF" style="border-collapse:collapse">
+<table width="100%" border="1" align="center" cellpadding="3" cellspacing="1" bordercolor="#708090" style="border-collapse:collapse">
     <tr>
         <td width="40"  align="center" bgcolor="#4682B4">序号</td>
         <td bgcolor='#4682B4' align="center">属性键名</td>
@@ -113,7 +113,7 @@ include_once '../constant.inc';
                     {
                         $id=mysql_result($query,$i,'id');
                         $key = mysql_result($query, $i, 'attribute_key');
-                        echo "<a href=\"delete.php?id=$id&type=item&subtype=attr&key=$key\" onclick=\"return confirm('确认删除？')\">删除</a>";
+                        echo "<a href=\"delete.php?id=$id&type=item&subtype=attr&key=$key\" onclick=\"return confirm('确认删除？')\"  class=\"btn\">删除</a>";
                     }
                     ?>
                 </td>

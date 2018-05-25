@@ -3,6 +3,7 @@
 session_start();
 header("content-type:text/html; charset=utf-8");
 include_once 'connection.php';
+include_once 'utility.php';
 
 $user_name=$_POST['username'];
 $pwd=$_POST['password'];
@@ -29,7 +30,7 @@ if (empty($user_name) || empty($pwd)) {
     } else {
         //judge password
         $row = mysql_fetch_assoc($query_res);
-        if ($row['password'] != $pwd) {
+        if (getCryptPassword($pwd) != $row['password']) {
             echo "<script language='javascript'>alert('错误的密码！');history.back();</script>";
             exit;
         }

@@ -10,7 +10,7 @@ body {
  padding:0px;
  margin:auto;
  text-align:center;
- background-color:#9ad075;
+ background-color:#4682b4;
 }
 
 dl.bitem {
@@ -19,7 +19,8 @@ dl.bitem {
 }
 
 dl.bitem dt {
-  background:url(../images/frame/menubg.gif);
+  /*background:url(../images/frame/menubg.gif);*/
+    background-color: #7E9DB9;
   height:26px;
   line-height:26px;
   text-align:center;
@@ -67,5 +68,5 @@ li {
 .sitemu li {
 	padding:0px 0px 0px 22px;
 	line-height:24px;
-	background:url(../images/frame/arr4.gif) no-repeat 10px 9px;
+	background:url(../images/frame/arr3.gif) no-repeat 10px 9px;
 }

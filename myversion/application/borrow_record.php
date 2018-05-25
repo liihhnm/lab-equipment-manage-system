@@ -1,12 +1,15 @@
 <?php
 session_start();
 include_once '../connection.php';
+include_once '../utility.php';
 include_once 'read.php';
 ?>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>借取记录</title><script language="javascript" src="js/Calendar.js"></script><link rel="stylesheet" href="css.css" type="text/css">
+    <title>借取记录</title>
+    <script language="javascript" src="js/Calendar.js"></script>
+    <link rel="stylesheet" href="css.css" type="text/css">
 </head>
 <body>
 <p>借取记录列表：</p>
@@ -28,9 +31,9 @@ include_once 'read.php';
         <option value="2">否</option>
         <option value="1">是</option>
     </select>
-    <input type="submit" name="Submit" value="查找" style='border:solid 1px #000000; color:#666666' />
+    <input type="submit" name="Submit" value="查找"   class="btn btn-primary"/>
 </form>
-<table width="100%" border="1" align="center" cellpadding="3" cellspacing="1" bordercolor="#00FFFF" style="border-collapse:collapse">
+<table width="100%" border="1" align="center" cellpadding="3" cellspacing="1" bordercolor="#708090" style="border-collapse:collapse">
     <tr>
         <td width="35" bgcolor="#4682B4">序号</td>
         <td bgcolor='#4682B4'>器材名称</td>
@@ -51,7 +54,7 @@ include_once 'read.php';
     {}
     else
     {
-        $pagelarge=10;//每页行数；
+        $pagelarge=30;//每页行数；
         $pagecurrent=$_GET["pagecurrent"];
         if($rowscount%$pagelarge==0)
         {
@@ -91,21 +94,25 @@ include_once 'read.php';
                 <td><?php echo mysql_result($query,$i,'name');?></td>
                 <td><?php echo mysql_result($query,$i,'student_id');?></td>
                 <td><?php echo mysql_result($query,$i,'borrow_amount');?></td>
-                <td><?php echo mysql_result($query,$i,'has_returned');?></td>
+                <td><?php echo hasReturnToCN(mysql_result($query,$i,'has_returned'));?></td>
                 <td width="120" align="center"><?php echo mysql_result($query,$i,"add_time");?></td>
                 <td width="120" align="center"><?php echo mysql_result($query,$i,"return_time");?></td>
                 <td width="70" align="center">
                     <?php
-                    if(mysql_result($query,$i,'isguihuan')=='no')
+                    if(mysql_result($query,$i,'has_returned') != 1)
                     {
                         ?>
-                        <a href="hs.php?id=<?php echo mysql_result($query,$i,"id")?>" onclick="return confirm('确定要执行此操作？')">归还</a>
+                        <a href="hs.php?id=<?php
+                        echo mysql_result($query,$i,"id")
+                        ?>" onclick="return confirm('确定要执行此操作？')"  class="btn">归还</a>
                         <?php
                     }
                     else
                     {
                         ?>
-                        <a href="del.php?id=<?php echo mysql_result($query,$i,"id");?>&tablename=jieyuejilu" onclick="return confirm('真的要删除？')">删除</a>
+                        <a href="del.php?id=<?php
+                        echo mysql_result($query,$i,"id");
+                        ?>&tablename=jieyuejilu" onclick="return confirm('真的要删除？')"  class="btn">删除</a>
                         <?php
                     }
                     ?>

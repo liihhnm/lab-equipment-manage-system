@@ -73,11 +73,11 @@ include_once '../connection.php';
             ?>
         </table>
     </div>
-    <center><input type="submit" name="Submit" value="查找" style='border:solid 1px #000000; color:#666666'/></center>
+    <center><input type="submit" name="Submit" value="查找" class="btn btn-primary"/></center>
 </form>
 
 
-<table width="100%" border="1" align="center" cellpadding="3" cellspacing="1" bordercolor="#00FFFF" style="border-collapse:collapse">
+<table width="100%" border="1" align="center" cellpadding="3" cellspacing="1" bordercolor="#708090" style="border-collapse:collapse">
     <tr>
         <td width="35" bgcolor="#4682B4">序号</td>
         <?php
@@ -159,7 +159,10 @@ include_once '../connection.php';
                     echo "</td>";
                 }
                 ?>
-                <td width="90" align="center"><a href="del.php?id=<?php echo mysql_result($query,$i,"id");?>&tablename=tushuxinxi" onclick="return confirm('真的要删除？')">删除</a> <a href="tushuxinxi_updt.php?id=<?php echo mysql_result($query,$i,"id");?>">修改</a> <a href="tushuxinxi_detail.php?id=<?php echo mysql_result($query,$i,"id");?>">详细</a></td>
+                <td width="90" align="center">
+                    <a href="del.php?id=<?php echo mysql_result($query,$i,"id");?>&tablename=tushuxinxi" onclick="return confirm('真的要删除？')" class="btn">删除</a>
+                    <a href="tushuxinxi_updt.php?id=<?php echo mysql_result($query,$i,"id");?>" class="btn">修改</a>
+                    <a href="tushuxinxi_detail.php?id=<?php echo mysql_result($query,$i,"id");?>" class="btn">详细</a></td>
             </tr>
             <?php
         }

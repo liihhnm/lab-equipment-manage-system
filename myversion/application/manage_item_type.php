@@ -19,7 +19,7 @@ include_once 'read.php';
     }
 </script>
 <form id="form1" name="form1" method="post" action="add.php">
-    <table width="100%" border="1" align="center" cellpadding="3" cellspacing="1" bordercolor="#00FFFF" style="border-collapse:collapse">
+    <table width="100%" border="1" align="center" cellpadding="3" cellspacing="1" bordercolor="#708090" style="border-collapse:collapse">
         <tr>
             <td>类别：</td>
             <td>
@@ -31,8 +31,8 @@ include_once 'read.php';
         <tr>
             <td>&nbsp;</td>
             <td>
-                <input type="submit" name="Submit" value="添加" onclick="return check();" />
-                <input type="reset" name="Submit2" value="重置" />
+                <input type="submit" name="Submit" value="添加" onclick="return check();"  class="btn btn-primary"/>
+                <input type="reset" name="Submit2" value="重置"  class="btn btn-primary"/>
             </td>
         </tr>
     </table>
@@ -46,7 +46,7 @@ include_once 'read.php';
     <input name="type_name" type="text" id="bh" />
     <input type="submit" name="Submit" value="查找" />
 </form>
-<table width="100%" border="1" align="center" cellpadding="3" cellspacing="1" bordercolor="#00FFFF" style="border-collapse:collapse">
+<table width="100%" border="1" align="center" cellpadding="3" cellspacing="1" bordercolor="#708090" style="border-collapse:collapse">
     <tr>
         <td width="25" bgcolor="#4682B4">序号</td>
         <td width = "240" bgcolor='#4682B4' align = "center">类别</td>
@@ -90,10 +90,11 @@ include_once 'read.php';
                 <td width="70" align="center">
                     <a href="delete.php?id=<?php
                     echo mysql_result($query,$i,"id");
-                    ?>&type=item&subtype=type" onclick="return confirm('真的要删除？')">删除</a>
+                    ?>&type=item&subtype=type" onclick="return confirm('真的要删除？')" class="btn">删除</a>
+
                     <a href="shangpinleibie_updt.php?id=<?php
                     echo mysql_result($query,$i,"id");
-                    ?>">修改</a></td>
+                    ?>"  class="btn">修改</a></td>
             </tr>
             <?php
         }

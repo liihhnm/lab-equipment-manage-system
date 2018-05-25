@@ -24,7 +24,13 @@ if ($type == constant('USER_TYPE')) {
 function deleteUser($id) {
     $sql1 = "delete from user_info where user_id = $id";
     $sql2 = "delete from users where id = $id";
-    $sql_arr = array($sql1, $sql2);
+
+    if (hasMultiRole($id)) {
+        $sql_arr = array($sql2);
+    } else {
+        $sql_arr = array($sql1, $sql2);
+    }
+
 
     $query_res = operate_trans($sql_arr);
     global $comeFrom;
@@ -32,6 +38,18 @@ function deleteUser($id) {
         echo "<script language='javascript'>alert('删除成功！');location.href='$comeFrom';</script>";
     } else {
         echo "<script language='javascript'>alert('删除失败！');location.href='$comeFrom';</script>";
+    }
+}
+
+function hasMultiRole($id) {
+    $sql = "select * from users where id = $id";
+    $user_name = mysql_result(mysql_query($sql), 0, 'user_name');
+    $sql2 = "select * from users where user_name = '$user_name'";
+
+    if (mysql_num_rows(mysql_query($sql2)) > 1) {
+        return true;
+    } else {
+        return false;
     }
 }
 
