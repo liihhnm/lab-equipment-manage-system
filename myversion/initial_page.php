@@ -8,8 +8,12 @@ require_once 'utility.php';
     <title>welcome</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <base target="_self">
-    <link rel="stylesheet" type="text/css" href="skin/css/base.css" />
-    <link rel="stylesheet" type="text/css" href="skin/css/main.css" />
+    <link rel = "stylesheet" href = "application/css.ss" type = "text/css"/>
+
+    <style>
+        .box{ font-size:14px}
+        .box .f20{ font-size:20px}
+    </style>
 </head>
 <!--
 <body leftmargin="8" topmargin='8'>
@@ -67,4 +71,7 @@ require_once 'utility.php';
 background-size:100% 100%;
 background-attachment: fixed;"
 >
+
+
+</body>
 </html>

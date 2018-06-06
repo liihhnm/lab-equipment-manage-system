@@ -42,9 +42,9 @@ function addUser() {
     if ($auth == 'normaluser') {
         $sql2 = getUserInfoSql($next_id);
         $sql_arr = array($sql1, $sql2);
-    }
-    else
+    } else {
         $sql_arr = array($sql1);
+    }
 
     if (operate_trans($sql_arr)) {
         echo "<script language='javascript'>alert('添加成功！');location.href='$comeFrom';</script>";

@@ -56,7 +56,7 @@ include_once '../connection.php';
 <form id="form1" name="form1" method="post" action="add.php">
     <table width="100%" border="1" align="center" cellpadding="3" cellspacing="1" bordercolor="#708090" style="border-collapse:collapse">
         <tr>
-            <td>用户名：</td>
+            <td align="right">用户名：</td>
             <td>
                 <input name="username" type="text" id="username" />
                 <input name = "type" type = "hidden" id = "type" value = "user"/>
@@ -64,11 +64,11 @@ include_once '../connection.php';
             <td>
         </tr>
         <tr>
-            <td>密码：</td>
+            <td align="right">密码：</td>
             <td><input name="pwd1" type="password" id="pwd1" /></td>
         </tr>
         <tr>
-            <td>确认密码：</td>
+            <td align="right">确认密码：</td>
             <td><input name="pwd2" type="password" id="pwd2" /></td>
         </tr>
         <tr>
@@ -81,7 +81,7 @@ include_once '../connection.php';
 
 <hr>
 
-<p>已有管理员列表：</p>
+<p>管理员列表：</p>
 <table width="100%" border="1" align="center" cellpadding="3" cellspacing="1" bordercolor="#708090" style="border-collapse:collapse">
     <tr>
         <td bgcolor="#4682B">序号</td>

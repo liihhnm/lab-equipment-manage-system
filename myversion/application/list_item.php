@@ -162,7 +162,7 @@ include_once '../connection.php';
                 <td width="90" align="center">
                     <a href="del.php?id=<?php echo mysql_result($query,$i,"id");?>&tablename=tushuxinxi" onclick="return confirm('真的要删除？')" class="btn">删除</a>
                     <a href="tushuxinxi_updt.php?id=<?php echo mysql_result($query,$i,"id");?>" class="btn">修改</a>
-                    <a href="tushuxinxi_detail.php?id=<?php echo mysql_result($query,$i,"id");?>" class="btn">详细</a></td>
+                    <a href="tushuxinxi_detail.php?id=<?php echo mysql_result($query,$i,"id");?>" class="btn">详情</a></td>
             </tr>
             <?php
         }

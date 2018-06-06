@@ -22,7 +22,7 @@ include_once '../constant.inc';
 </form>
 <table width="100%" border="1" align="center" cellpadding="3" cellspacing="1" bordercolor="#708090" style="border-collapse:collapse">
     <tr>
-        <td width="25" bgcolor="#4682B4">序号</td>
+        <td width="50" bgcolor="#4682B4">序号</td>
         <td width="94" bgcolor='#4682B4'>用户名</td>
         <td width="94" bgcolor='#4682B4'>姓名</td>
         <td width="94" bgcolor='#4682B4'>学号</td>

@@ -43,6 +43,9 @@ function findItemType($type_name) {
     return mysql_query($sql);
 }
 
+//user user_info type_info item_info borrow_record
+//相关联表的连接，再过滤，然后再连接成一个目标表
+//唉，我只想到了这种实现 真TM垃圾
 function findBorrowRecord($item_name, $item_type_id, $name, $student_id, $has_returned) {
     $whole_sql = "select ub.name, ub.student_id, ub.has_returned, ub.borrow_amount, ub.return_time,
   ub.add_time, i.item_name, i.type_name

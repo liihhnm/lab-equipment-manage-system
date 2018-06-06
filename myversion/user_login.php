@@ -14,7 +14,7 @@ if (empty($user_name) || empty($pwd)) {
 } else {
     //connect and query user info
     $table = "users";
-    $sql = "select * from $table where binary user_name = '" . $user_name ."' and role = '" . $role ."'";
+    $sql = "select * from $table where binary user_name = '$user_name' and role = '$role'";
     $query_res = mysql_query($sql, $connection);
     $row_count = mysql_num_rows($query_res);
     if (!$query_res) {
