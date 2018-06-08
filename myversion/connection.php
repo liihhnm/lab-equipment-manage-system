@@ -106,4 +106,28 @@ function getMyOption($table, $value, $option) {
     }
 }
 
+function fetchSingleValue($table, $attribute, $value, $target) {
+    $sql = "select $target from $table where $attribute = $value";
+    $query_res = mysql_query($sql);
+    if (!$query_res || mysql_num_rows($query_res) == 0)
+        return false;
+    return mysql_result($query_res, 0, "$target");
+}
+
+function updateSingleValue($table, $find_attr, $value, $target_attr, $value2) {
+    $sql = "update $table set $target_attr = $value2 where $find_attr = $value";
+    $query_res = mysql_query($sql);
+    if (!$query_res)
+        return false;
+    else
+        return true;
+}
+
+function fetchSingleRow($table, $attribute, $value) {
+    $sql = "select * from $table where $attribute = $value";
+    $query_res = mysql_query($sql);
+    if (!$query_res || mysql_num_rows($query_res) == 0)
+        return false;
+    return $query_res;
+}
 ?>

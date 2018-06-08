@@ -174,7 +174,6 @@ function addItemInfo() {
             $sql = $sql . ', ';
     }
     $sql = $sql.")";
-    echo $sql;
     if (mysql_query($sql)) {
         echo "<script language='javascript'>alert('添加成功！');location.href='$comeFrom';</script>";
     } else {

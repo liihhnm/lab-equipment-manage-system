@@ -19,6 +19,7 @@ if ($type == constant('USER_TYPE')) {
 } else if ($type == constant('ITEM_TYPE')) {
     deleteItem($id);
 } else {
+    echo "<script language='javascript'>alert('未知操作！');location.href='$comeFrom';</script>";
 }
 
 function deleteUser($id) {
@@ -54,13 +55,18 @@ function hasMultiRole($id) {
 }
 
 function deleteItem($id) {
+    global $comeFrom;
     $subtype = $_REQUEST['subtype'];
-    if (!empty($subtype)) {
-        if ($subtype == 'attr') {
-            deleteItemAttr($id);
-        } elseif ($subtype == 'type') {
-            deleteItemType($id);
-        }
+    if ($subtype == 'attr') {
+        deleteItemAttr($id);
+    } elseif ($subtype == 'type') {
+        deleteItemType($id);
+    } else if ($subtype == 'record') {
+        deleteRecord($id);
+    } else if ($subtype == 'iteminfo') {
+        deleteItemInfo($id);
+    } else {
+        echo "<script language='javascript'>alert('未知操作！');location.href='$comeFrom';</script>";
     }
 }
 
@@ -85,6 +91,26 @@ function deleteItemAttr($id) {
 function deleteItemType($id) {
     global $comeFrom;
     $sql = "delete from type_info where id = $id";
+    if (mysql_query($sql)) {
+        echo "<script language='javascript'>alert('删除成功！');location.href='$comeFrom';</script>";
+    } else {
+        echo "<script language='javascript'>alert('删除失败！');location.href='$comeFrom';</script>";
+    }
+}
+
+function deleteRecord($id) {
+    global $comeFrom;
+    $sql = "delete from borrow_record where id = $id";
+    if (mysql_query($sql)) {
+        echo "<script language='javascript'>alert('删除成功！');location.href='$comeFrom';</script>";
+    } else {
+        echo "<script language='javascript'>alert('删除失败！');location.href='$comeFrom';</script>";
+    }
+}
+
+function deleteItemInfo($id) {
+    global $comeFrom;
+    $sql = "delete from item_info where id = $id";
     if (mysql_query($sql)) {
         echo "<script language='javascript'>alert('删除成功！');location.href='$comeFrom';</script>";
     } else {

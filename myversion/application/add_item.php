@@ -66,6 +66,12 @@ include_once '../connection.php';
                 <textarea name = 'item_describe' id = 'item_describe' style='border:solid 1px #000000; color:#666666'></textarea>
             </td>
         </tr>
+        <tr>
+            <td>器材图片链接：</td>
+            <td>
+                <textarea name = 'item_picture' id = 'item_picture' style='border:solid 1px #000000; color:#666666'></textarea>
+            </td>
+        </tr>
         <?php
         $sql="select * from item_attribute where is_default = 0";
         $query=mysql_query($sql);

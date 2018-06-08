@@ -3,7 +3,7 @@ session_start();
 ?>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>无标题文档</title>
 <link rel="stylesheet" href="skin/css/base.css" type="text/css" />
 <link rel="stylesheet" href="skin/css/menu.css" type="text/css" />
@@ -42,52 +42,6 @@ session_start();
           </ul>
         </dd>
       </dl>
-	  
-	  <!--<dl class='bitem'>
-        <dt onClick='showHide("items3_1")'><b>系统帮助</b></dt>
-        <dd style='display:block' class='sitem' id='items3_1'>
-          <ul class='sitemu'>
-            <li><a href='http://www.865171.cn' target='main'>官方网站</a></li>
-            <li><a href='http://www.865171.cn/admin-templates/' target='main'>更多后台模板</a></li>
-          </ul>
-        </dd>
-      </dl>
-	  
-	  <dl class='bitem'>
-        <dt onClick='showHide("items4_1")'><b>系统帮助</b></dt>
-        <dd style='display:block' class='sitem' id='items4_1'>
-          <ul class='sitemu'>
-            <li><a href='http://www.865171.cn' target='main'>官方网站</a></li>
-            <li><a href='http://www.865171.cn/admin-templates/' target='main'>更多后台模板</a></li>
-          </ul>
-        </dd>
-      </dl>
-	  
-	  <dl class='bitem'>
-        <dt onClick='showHide("items5_1")'><b>系统帮助</b></dt>
-        <dd style='display:block' class='sitem' id='items5_1'>
-          <ul class='sitemu'>
-            <li><a href='http://www.865171.cn' target='main'>官方网站</a></li>
-            <li><a href='http://www.865171.cn/admin-templates/' target='main'>更多后台模板</a></li>
-          </ul>
-        </dd>
-      </dl>
-	  
-	  <dl class='bitem'>
-        <dt onClick='showHide("items6_1")'><b>系统管理</b></dt>
-        <dd style='display:block' class='sitem' id='items6_1'>
-          <ul class='sitemu'>
-            
-            <li><a href='youqinglianjie_add.php' target='main'>友情连接添加</a></li>
-            <li><a href='youqinglianjie_list.php' target='main'>友情连接查询</a></li>
-            <li><a href='liuyanban_list.php' target='main'>留言管理</a></li>
-            <li><a href='dx.php?lb=系统简介' target='main'>系统简介设置</a></li>
-            <li><a href='dx.php?lb=系统公告' target='main'>系统公告设置</a></li>
-
-          </ul>
-        </dd>
-      </dl>-->
-      <!-- Item 2 End -->
 	  </td>
   </tr>
 </table>

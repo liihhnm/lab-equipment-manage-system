@@ -81,7 +81,7 @@ include_once '../connection.php';
     <tr>
         <td width="35" bgcolor="#4682B4">序号</td>
         <?php
-        $sql="select * from item_attribute";
+        $sql="select * from item_attribute where is_default = 1 and attribute_key != 'item_picture'";
         $query=mysql_query($sql);
         $count=mysql_num_rows($query);
         for($i=0;$i<$count;$i++)
@@ -160,9 +160,9 @@ include_once '../connection.php';
                 }
                 ?>
                 <td width="90" align="center">
-                    <a href="del.php?id=<?php echo mysql_result($query,$i,"id");?>&tablename=tushuxinxi" onclick="return confirm('真的要删除？')" class="btn">删除</a>
-                    <a href="tushuxinxi_updt.php?id=<?php echo mysql_result($query,$i,"id");?>" class="btn">修改</a>
-                    <a href="tushuxinxi_detail.php?id=<?php echo mysql_result($query,$i,"id");?>" class="btn">详情</a></td>
+                    <a href="delete.php?id=<?php echo mysql_result($query,$i,"id");?>&type=item&subtype=iteminfo" onclick="return confirm('真的要删除？')" class="btn">删除</a>
+                    <a href="add_item.php?id=<?php echo mysql_result($query,$i,"id");?>&type=changeinfo" class="btn">修改</a>
+                    <a href="item_detail.php?id=<?php echo mysql_result($query,$i,"id");?>" class="btn">详情</a></td>
             </tr>
             <?php
         }

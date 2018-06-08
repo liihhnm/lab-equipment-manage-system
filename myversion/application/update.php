@@ -6,8 +6,13 @@ include_once '../utility.php';
 
 
 $type = $_REQUEST['type'];
+$subtype = $_REQUEST['subtype'];
 if ($type == 'password') {
     changePassword();
+} else if ($type == 'item') {
+    if ($subtype == 'record') {
+        changeBorrowRecord();
+    }
 }
 
 function changePassword() {
@@ -34,4 +39,30 @@ function changePassword() {
     }
 }
 
+//return operation
+function changeBorrowRecord() {
+    if (!hasManagerRight()) {
+        noRightError();
+        exit;
+    }
+
+    $id = $_REQUEST['id'];
+    $borrow_amount = $_REQUEST['borrow_amount'];
+    if (empty($id))
+        showErrorAndBack('操作失败！');
+    //find amount
+    $item_id = fetchSingleValue("borrow_record", "id", "$id", "item_id");
+    $left_amount = fetchSingleValue("item_info", "id", "$item_id", "amount");
+    if ($item_id === false || $left_amount === false)
+        showErrorAndback("操作失败！!");
+
+    $total_amount = $borrow_amount + $left_amount;
+    $sql1 = "update borrow_record set has_returned = 1, return_time = CURRENT_TIMESTAMP where id = $id";
+    $sql2 = "update item_info set amount = $total_amount where id = $item_id";
+    if (!operate_trans(array($sql1, $sql2))) {
+        showErrorAndBack("操作失败！");
+    } else {
+        showErrorAndBack("操作成功！");
+    }
+}
 ?>

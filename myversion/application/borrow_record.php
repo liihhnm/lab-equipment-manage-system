@@ -102,17 +102,19 @@ include_once 'read.php';
                     if(mysql_result($query,$i,'has_returned') != 1)
                     {
                         ?>
-                        <a href="hs.php?id=<?php
-                        echo mysql_result($query,$i,"id")
+                        <a href="update.php?id=<?php
+                        echo mysql_result($query,$i,"id");
+                        ?>&type=item&subtype=record&borrow_amount=<?php
+                        echo mysql_result($query, $i, "borrow_amount");
                         ?>" onclick="return confirm('确定要执行此操作？')"  class="btn">归还</a>
                         <?php
                     }
                     else
                     {
                         ?>
-                        <a href="del.php?id=<?php
+                        <a href="delete.php?id=<?php
                         echo mysql_result($query,$i,"id");
-                        ?>&tablename=jieyuejilu" onclick="return confirm('真的要删除？')"  class="btn">删除</a>
+                        ?>&type=item&subtype=record" onclick="return confirm('真的要删除？')"  class="btn">删除</a>
                         <?php
                     }
                     ?>

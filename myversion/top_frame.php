@@ -161,10 +161,10 @@ require_once 'utility.php';
                         <dl id="tpa">
 <!--                            <dd class='img'><a href="javascript:ChangeMenu(-1);"><img vspace="5" src="skin/images/frame/arrl.gif" border="0" width="5" height="8" alt="缩小左框架"  title="缩小左框架" /></a></dd>-->
                             <dd class='img'><a href="javascript:ChangeMenu(0);"><img vspace="3" src="skin/images/frame/arrfc.gif" border="0" width="12" height="12" alt="显示/隐藏左框架" title="显示/隐藏左框架" /></a></dd>
-                            <dd class='img' style="margin-right:10px;"><a href="javascript:ChangeMenu(1);"><img vspace="5" src="skin/images/frame/arrr.gif" border="0" width="5" height="8" alt="增大左框架" title="增大左框架" /></a></dd>
+                            <!--<dd class='img' style="margin-right:10px;"><a href="javascript:ChangeMenu(1);"><img vspace="5" src="skin/images/frame/arrr.gif" border="0" width="5" height="8" alt="增大左框架" title="增大左框架" /></a></dd>-->
                             <?php
-                                if (isManager($_SESSION['role']))
-                                    echo "<dd><div class='itemsel' id='item1'><a href='application/manager.php'  target='main'>系统用户管理</a></div></dd>";
+                                //if (isManager($_SESSION['role']))
+                                 //   echo "<dd><div class='itemsel' id='item1'><a href='application/manager.php'  target='main'>系统用户管理</a></div></dd>";
                             ?>
                             <dd><div class='itemsel' id='item9' "><a href="initial_page.php" target="main">后台主页</a></div></dd>
                         </dl>

@@ -14,6 +14,14 @@
 
 </head>
 
+<?php
+session_start();
+if (empty($_SESSION['role'])) {
+    echo "<script language='javascript'>alert('请先登录');location.href='index2.html';</script>";
+
+}
+?>
+
 <frameset rows="60,*" cols="*" frameborder="no" border="0" framespacing="0">
     <frame src="top_frame.php" name="topFrame" scrolling="no">
     <frameset cols="180,*" name="btFrame" frameborder="NO" border="0" framespacing="0">

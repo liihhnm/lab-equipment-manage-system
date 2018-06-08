@@ -47,16 +47,16 @@ function findItemType($type_name) {
 //相关联表的连接，再过滤，然后再连接成一个目标表
 //唉，我只想到了这种实现 真TM垃圾
 function findBorrowRecord($item_name, $item_type_id, $name, $student_id, $has_returned) {
-    $whole_sql = "select ub.name, ub.student_id, ub.has_returned, ub.borrow_amount, ub.return_time,
+    $whole_sql = "select ub.id, ub.name, ub.student_id, ub.has_returned, ub.borrow_amount, ub.return_time,
   ub.add_time, i.item_name, i.type_name
 from
-  (select u.name, u.student_id, br.item_id, br.has_returned, br.borrow_amount, br.return_time, br.add_time
+  (select u.name, u.student_id, br.id, br.item_id, br.has_returned, br.borrow_amount, br.return_time, br.add_time
    from
      (select ui.name, ui.student_id, ui.user_id
       from user_info as ui
       where name like '%%' and student_id like '%%') as u
      inner join
-     (select br.item_id, br.user_id, br.has_returned, br.borrow_amount, br.return_time, br.add_time
+     (select br.id, br.item_id, br.user_id, br.has_returned, br.borrow_amount, br.return_time, br.add_time
       from borrow_record as br
       where has_returned = 0) as br
        on u.user_id = br.user_id) as ub
@@ -69,16 +69,16 @@ from
 
 
 
-    $first = "select ub.name, ub.student_id, ub.has_returned, ub.borrow_amount, ub.return_time,
+    $first = "select ub.id, ub.name, ub.student_id, ub.has_returned, ub.borrow_amount, ub.return_time,
   ub.add_time, i.item_name, i.type_name
 from
-  (select u.name, u.student_id, br.item_id, br.has_returned, br.borrow_amount, br.return_time, br.add_time
+  (select u.name, u.student_id, br.id, br.item_id, br.has_returned, br.borrow_amount, br.return_time, br.add_time
    from
      (select ui.name, ui.student_id, ui.user_id
       from user_info as ui";
     $second = ") as u
      inner join
-     (select br.item_id, br.user_id, br.has_returned, br.borrow_amount, br.return_time, br.add_time
+     (select br.id, br.item_id, br.user_id, br.has_returned, br.borrow_amount, br.return_time, br.add_time
       from borrow_record as br";
     $third = ") as br
        on u.user_id = br.user_id) as ub
@@ -87,7 +87,7 @@ from
    from item_info as ii left join type_info as ti
        on ii.item_type_id = ti.id";
     $fouth = ") as i
-    on ub.item_id = i.item_id order by ub.add_time desc;";
+    on ub.item_id = i.item_id order by ub.has_returned desc, ub.add_time desc;";
 
     $first_where = " where name like '%$name%' and student_id like '%$student_id%' ";
     if ($has_returned >= 1) {
@@ -115,6 +115,7 @@ from
     } else
         echo "failed";
     */
+
     return mysql_query($final_sql);
 }
 
