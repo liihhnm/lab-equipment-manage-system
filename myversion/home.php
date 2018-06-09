@@ -22,7 +22,7 @@ if (empty($_SESSION['role'])) {
 }
 ?>
 
-<frameset rows="60,*" cols="*" frameborder="no" border="0" framespacing="0">
+<frameset name = "parent" rows="60,*" cols="*" frameborder="no" border="0" framespacing="0">
     <frame src="top_frame.php" name="topFrame" scrolling="no">
     <frameset cols="180,*" name="btFrame" frameborder="NO" border="0" framespacing="0">
         <frame src="navigation.php" noresize name="menu" scrolling="yes">

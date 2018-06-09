@@ -26,7 +26,11 @@ session_start();
                                 <div class='fllct'><a href='yonghuzhuce_updt.php' target='main'>个人信息修改</a></div>
                             </div>
                         </li>
-
+                        <li>
+                            <div class='items'>
+                                <div class='fllct'><a href='application/change_password.php' target='main'>修改密码</a></div>
+                            </div>
+                        </li>
                     </ul>
                 </dd>
             </dl>
@@ -36,8 +40,8 @@ session_start();
                 <dt onClick='showHide("items2_1")'><b>器材借取管理</b></dt>
                 <dd style='display:block' class='sitem' id='items2_1'>
                     <ul class='sitemu'>
-                        <li><a href='list_item.php' target='main'>器材查询借阅</a></li>
-                        <li><a href='borrow_record.php&username=' target='main'>借取记录管理</a></li>
+                        <li><a href='application/list_item.php?from=normaluser' target='main'>器材查询借阅</a></li>
+                        <li><a href='application/borrow_record.php' target='main'>借取记录管理</a></li>
                     </ul>
                 </dd>
             </dl>

@@ -12,6 +12,8 @@ if ($type == 'password') {
 } else if ($type == 'item') {
     if ($subtype == 'record') {
         changeBorrowRecord();
+    } else if ($subtype == 'borrow_number') {
+        addBorrowRecord();
     }
 }
 
@@ -29,7 +31,7 @@ function changePassword() {
             if (!$change_res) {
                 showErrorAndBack('更改密码失败！');
             } else {
-                showErrorAndBack('修改密码成功！');
+                showErrorAndBack('修改成功！');
             }
         } else {
             showErrorAndBack('原密码不正确！');
@@ -64,5 +66,10 @@ function changeBorrowRecord() {
     } else {
         showErrorAndBack("操作成功！");
     }
+}
+
+function addBorrowRecord() {
+    $item_id = $_REQUEST['id'];
+    $borrow_number = $_REQUEST['jienumber'];
 }
 ?>

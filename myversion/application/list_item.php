@@ -13,6 +13,22 @@ include_once '../connection.php';
     <style type="text/css">
         #TableForm td{padding-right:25px;}
     </style>
+
+    <script language="javascript">
+        function jienumber_sub(){
+            var jienumber = prompt("请输入借阅数量！","0");
+            if (jienumber == 0) {
+                alert('不能为0');
+                return;
+            }
+            var number= document.getElementById("jienumber").value;
+            if(number=='0')
+            {
+                document.getElementById("jienumber").value=jienumber;
+            }
+            document.getElementById("form2").submit();
+        }
+    </script>
 </head>
 <body>
 
@@ -160,8 +176,25 @@ include_once '../connection.php';
                 }
                 ?>
                 <td width="90" align="center">
-                    <a href="delete.php?id=<?php echo mysql_result($query,$i,"id");?>&type=item&subtype=iteminfo" onclick="return confirm('真的要删除？')" class="btn">删除</a>
-                    <a href="add_item.php?id=<?php echo mysql_result($query,$i,"id");?>&type=changeinfo" class="btn">修改</a>
+                    <form id="form2" name="form2" method="post" action="update.php">
+                        <input id="jienumber" type="hidden" name="jienumber" value="0">
+                        <input id="id" type="hidden" name="id" value="<?php echo mysql_result($query,$i,"id");?>">
+                        <input id = "type" type = "hidden" value = "item">
+                        <input id = "subtype" type = "hidden" value = "borrow_number">
+                    </form>
+                    <?php
+                        if ($_REQUEST['from'] != 'normaluser') {
+                            ?>
+                            <a href="delete.php?id=<?php echo mysql_result($query,$i,"id");?>&type=item&subtype=iteminfo" onclick="return confirm('真的要删除？')" class="btn">删除</a>
+                            <a href="add_item.php?id=<?php echo mysql_result($query,$i,"id");?>&type=changeinfo" class="btn">修改</a>
+                            <?php
+                        } else {
+                            ?>
+                            <a href="javascript:void(0);" onclick='jienumber_sub()' class="btn">借取</a>
+                            <?php
+                        }
+                    ?>
+
                     <a href="item_detail.php?id=<?php echo mysql_result($query,$i,"id");?>" class="btn">详情</a></td>
             </tr>
             <?php
